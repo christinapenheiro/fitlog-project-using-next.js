@@ -10,10 +10,10 @@ const Nav = () => {
               <Image
                 src="/assets/logo.png"
                 alt="FITLOG"
-                width={15}
-                height={15}
+                width={20}
+                height={20}
               />
-              <span className="text-[15px] font-bold text-white">FITLOG</span>
+              <span className="text-xs font-bold text-white">FITLOG</span>
             </Link>
           </div>
 
