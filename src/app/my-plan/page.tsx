@@ -1,5 +1,5 @@
 "use client"
-import { useContext } from "react";
+import { act, useContext, useState } from "react";
 import { PlanContext } from "@/context/plan";
 import IExercise from "@/types/type";
 import Image from "next/image";
@@ -11,9 +11,11 @@ export interface PageProps {
 
 export default function Page() {
     const {todayPlan,saveLater} = useContext(PlanContext)
-    
-    
-
+    const [activeTab,setActiveTab] = useState<"today"|"saved">("today")
+    const selectedPlan = activeTab === "today" ? todayPlan : saveLater;
+    const excercises =  selectedPlan.length
+    const minutes = selectedPlan.reduce((acc,min)=> min.duration+acc,0)
+    const calories = selectedPlan.reduce((acc,cal)=>cal.caloriesBurned+acc,0)
 
     return (
       <div>
@@ -36,29 +38,27 @@ export default function Page() {
                 </span>
 
                 <span className="text-2xl font-black text-white sm:text-3xl">
-                  5
+                  {excercises}
                 </span>
               </div>
 
-              {/* Minutes */}
               <div className="flex flex-col items-center gap-1 px-2 text-center">
                 <span className="text-xs font-medium uppercase tracking-widest text-gray-500">
                   Minutes
                 </span>
 
                 <span className="text-2xl font-black text-white sm:text-3xl">
-                  45
+                  {minutes}
                 </span>
               </div>
 
-              {/* Calories */}
               <div className="flex flex-col items-center gap-1 px-2 text-center">
                 <span className="text-xs font-medium uppercase tracking-widest text-gray-500">
                   Calories
                 </span>
 
                 <span className="text-2xl font-black text-[#C2F800] sm:text-3xl">
-                  320
+                  {calories}
                 </span>
               </div>
             </div>
@@ -70,13 +70,15 @@ export default function Page() {
               name="my_tabs_3"
               className="tab"
               aria-label="Today's Plan"
+              checked={activeTab === "today"}
+              onChange={() => setActiveTab("today")}
             />
-            <div className="tab-content bg-base-100 border-base-300 p-6">
+            <div className="tab-content bg-base-100 border-base-300 p-6 min-h-[50vh]">
               {todayPlan.length > 0 ? (
-                todayPlan.map((plan: IExercise) => (
+                todayPlan.map((plan: IExercise,index) => (
                   <div
                     className="group rounded-2xl border border-[#252832] bg-[#13161D] p-4 transition hover:border-[#3A3E49] mb-4"
-                    key={plan.id}
+                    key={plan.name || index}
                   >
                     {" "}
                     <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -177,9 +179,10 @@ export default function Page() {
               name="my_tabs_3"
               className="tab"
               aria-label="Saved"
-              defaultChecked
+              checked={activeTab === "saved"}
+              onChange={() => setActiveTab("saved")}
             />
-            <div className="tab-content bg-base-100 border-base-300 p-6">
+            <div className="tab-content bg-base-100 border-base-300 p-6 min-h-[50vh]">
               {saveLater.length > 0 ? (
                 saveLater.map((plan: IExercise) => (
                   <div
