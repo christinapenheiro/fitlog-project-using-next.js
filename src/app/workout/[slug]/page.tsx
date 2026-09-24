@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 import IExercise from "@/types/type";
+import SaveButton from "@/components/shared/SaveButton";
+import PlanButton from "@/components/shared/PlanButton";
 
 const libraryData = async () => {
   const res = await fetch("https://api.abcz.workers.dev/api/fitlog");
@@ -128,21 +130,9 @@ export default async function WorkoutDetails({
             </div>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <button
-                type="button"
-                className="flex h-11 items-center justify-center gap-2 rounded-lg bg-[#C2F800] px-5 text-xs font-bold text-black transition hover:bg-[#d4ff3d]"
-              >
-                <span>▣</span>
-                Add to today&apos;s plan
-              </button>
+              <PlanButton card={exercise}></PlanButton>
 
-              <button
-                type="button"
-                className="flex h-11 items-center justify-center gap-2 rounded-lg border border-white/15 bg-transparent px-5 text-xs font-medium text-gray-300 transition hover:border-white/30 hover:text-white"
-              >
-                <span>♡</span>
-                Save for later
-              </button>
+              <SaveButton card={exercise}></SaveButton>
             </div>
           </div>
         </div>

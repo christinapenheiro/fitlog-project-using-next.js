@@ -9,7 +9,7 @@ interface LibCardProps {
 export default function LibCard({ cardData }: LibCardProps) {
 
   return (
-    <Link href={`/workouts/${cardData.id}`}>
+    <Link href={`/workout/${cardData.id}`}>
       <article className="overflow-hidden rounded-2xl border border-white/10 bg-[#15171D] transition-all duration-300 hover:-translate-y-1 hover:border-[#C2F800]/40 hover:shadow-[0_12px_40px_rgba(0,0,0,0.35)]">
         {/* Image */}
         <div className="relative h-52 overflow-hidden bg-[#202228]">

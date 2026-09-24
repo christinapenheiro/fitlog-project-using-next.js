@@ -27,7 +27,7 @@ const Nav = () => {
               </Link>
 
               <Link
-                href="/"
+                href="/my-plan"
                 className="px-3 py-1 text-white/50 transition hover:text-white"
               >
                 My Plan

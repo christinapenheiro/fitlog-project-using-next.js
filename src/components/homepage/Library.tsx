@@ -1,4 +1,3 @@
-import React from "react";
 import type IExercise from "@/types/type";
 import LibCard from "../shared/LibCard";
 
