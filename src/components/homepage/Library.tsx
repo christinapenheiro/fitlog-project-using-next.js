@@ -2,7 +2,7 @@ import React from "react";
 import type IExercise from "@/types/type";
 import LibCard from "../shared/LibCard";
 
-const libraryData = async () => {
+export const libraryData = async () => {
   const res = await fetch("https://api.abcz.workers.dev/api/fitlog");
   if (!res.ok) {
     throw new Error("Failed to fetch data.");
