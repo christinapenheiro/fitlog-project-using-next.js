@@ -2,14 +2,21 @@
 import { PlanContext } from '@/context/plan';
 import IExercise from '@/types/type';
 import React, { useContext } from 'react';
+import { toast } from 'react-toastify';
 
 
 
 
 const PlanButton = ({card}:{card:IExercise}) => {
     const {todayPlan,setTodayPlan} = useContext(PlanContext)
+    const somePlan = todayPlan.some(plan=>plan.id === card.id)
     const handlePlan = () => {
+      if(somePlan){
+        toast.error("Already in your plan!")
+      } else{
         setTodayPlan([...todayPlan,card])
+        toast.success("Added to today's plan");
+      }
     }
 
     return (

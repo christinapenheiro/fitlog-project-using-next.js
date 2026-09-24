@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import NavEnd from "./NavEnd";
 
 const Nav = () => {
     return (
@@ -34,24 +35,8 @@ const Nav = () => {
               </Link>
             </div>
           </div>
-
-          <div className="navbar-end">
-            <div className="flex items-center gap-4 text-[10px] sm:text-sm text-white/70">
-              <Link href="/" className="flex items-center gap-1">
-                <span>Plan</span>
-                <span className="flex h-3 w-3 items-center justify-center rounded-full bg-[#C2F800] text-[7px] text-black">
-                  0
-                </span>
-              </Link>
-
-              <Link href="/" className="flex items-center gap-1.5">
-                <span>Saved</span>
-                <span className="flex h-3 w-3 items-center justify-center rounded-full border border-white/30 text-[7px]">
-                  0
-                </span>
-              </Link>
-            </div>
-          </div>
+          <NavEnd></NavEnd>
+        
         </div>
       </div>
     );

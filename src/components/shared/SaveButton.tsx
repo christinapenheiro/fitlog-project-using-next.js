@@ -2,12 +2,20 @@
 import { useContext } from "react";
 import { PlanContext } from "@/context/plan";
 import IExercise from "@/types/type";
+import { toast } from "react-toastify";
 
 const SaveButton = ({card}:{card:IExercise}) => {
   const {saveLater, setSaveLater} = useContext(PlanContext);
-  const handlePlan = () => {
-    setSaveLater([...saveLater,card])
-  };
+  const somePlan = saveLater.some(plan=>plan.id === card.id)
+      const handlePlan = () => {
+        if(somePlan){
+          toast.error("Already in your plan!")
+        } else{
+          setSaveLater([...saveLater,card])
+          toast.success("Added to saved plan");
+        }
+      }
+
   return (
     <button
       type="button"
