@@ -1,7 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
+import BrowseButton from "./BrowseButton";
 
 const Banner = () => {
+
+
+
   return (
     <div className="mx-4 sm:mx-6 lg:mx-8 overflow-hidden rounded-2xl bg-[#15171D] my-15">
       <div className="flex flex-col md:flex-row items-center justify-between">
@@ -21,12 +25,7 @@ const Banner = () => {
             FitLog is a dark, no-nonsense gym companion: pick a lift, lock it
             into today&apos;s plan, and watch the week&apos;s work add up.
           </p>
-
-          <Link href="/">
-            <button className="mt-8 rounded-sm bg-[#C2F800] px-3  md:px-6 py-1.5 lg:py-3 text-sm font-semibold text-black transition hover:bg-[#d4ff38] hover:scale-100">
-              BROWSE WORKOUTS
-            </button>
-          </Link>
+          <BrowseButton />
         </div>
 
         <div className="relative w-full lg:w-1/2 py-8">

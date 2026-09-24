@@ -21,7 +21,7 @@ const Library = async () => {
   }
 
   return (
-    <div className="mx-4 sm:mx-6 lg:mx-8 overflow-hidden mb-15">
+    <section id="Library" className="mx-4 sm:mx-6 lg:mx-8 overflow-hidden mb-15">
       <h1 className="max-w-xl text-2xl lg:text-3xl font-black leading-[0.95] tracking-tight text-white mx-auto md:mx-0 text-center md:text-left">
         THE LIBRARY
       </h1>
@@ -33,7 +33,7 @@ const Library = async () => {
           <LibCard key={data.id} cardData={data} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
