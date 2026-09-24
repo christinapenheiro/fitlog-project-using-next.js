@@ -11,7 +11,7 @@ const PlanButton = ({card}:{card:IExercise}) => {
     const handlePlan = () => {
         setTodayPlan([...todayPlan,card])
     }
-    console.log(todayPlan)
+
     return (
       <button
         type="button"

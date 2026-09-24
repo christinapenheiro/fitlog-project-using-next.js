@@ -1,16 +1,22 @@
-import React from 'react';
+"use client"
+import { useContext } from "react";
+import { PlanContext } from "@/context/plan";
+import IExercise from "@/types/type";
 
-
-const SaveButton = () => {
-    return (
-      <button
-        type="button"
-        className="flex h-11 items-center justify-center gap-2 rounded-lg cursor-pointer border border-white/15 bg-transparent px-5 text-xs font-medium text-gray-300 transition hover:border-white/30 hover:text-white"
-      >
-        <span>♡</span>
-        Save for later
-      </button>
-    );
+const SaveButton = ({card}:{card:IExercise}) => {
+  const {saveLater, setSaveLater} = useContext(PlanContext);
+  const handlePlan = () => {
+    setSaveLater([...saveLater,card])
+  };
+  return (
+    <button
+      type="button"
+      className="flex h-11 items-center justify-center gap-2 rounded-lg cursor-pointer border border-white/15 bg-transparent px-5 text-xs font-medium text-gray-300 transition hover:border-white/30 hover:text-white" onClick={handlePlan}
+    >
+      <span>♡</span>
+      Save for later
+    </button>
+  );
 };
 
 export default SaveButton;
