@@ -6,7 +6,7 @@ const Footer = () => {
     return (
       <div>
         <footer className="border-t border-white/10 bg-[#090A0C]">
-          <div className="flex  items-center justify-between px-6 sm:px-8 py-5">
+          <div className="flex  items-center justify-between px-6 sm:px-8 py-7">
 
             <Link href="/" className="flex items-center gap-2">
               <Image
