@@ -37,7 +37,7 @@ export default function Page() {
                   Exercises
                 </span>
 
-                <span className="text-2xl font-black text-white sm:text-3xl">
+                <span className="text-2xl font-black sm:text-3xl text-[#C2F800]">
                   {excercises}
                 </span>
               </div>
@@ -57,7 +57,7 @@ export default function Page() {
                   Calories
                 </span>
 
-                <span className="text-2xl font-black text-[#C2F800] sm:text-3xl">
+                <span className="text-2xl font-black text-white sm:text-3xl">
                   {calories}
                 </span>
               </div>
@@ -68,7 +68,7 @@ export default function Page() {
             <input
               type="radio"
               name="my_tabs_3"
-              className="tab"
+              className={`tab ${activeTab === "today" && `text-[#C2F10D]`}`}
               aria-label="Today's Plan"
               checked={activeTab === "today"}
               onChange={() => setActiveTab("today")}
@@ -132,10 +132,10 @@ export default function Page() {
                       <div className="flex items-center gap-2  lg:flex-row">
                         {" "}
                         <Link href={`/workout/${plan.id}`}>
-                        <button className="btn btn-sm flex-1 rounded-lg border border-[#30343D] bg-transparent text-xs font-bold uppercase hover:border-[#C2F800] hover:bg-transparent hover:text-[#C2F800] sm:flex-none">
-                          {" "}
-                          View Details{" "}
-                        </button>{" "}
+                          <button className="btn btn-sm flex-1 rounded-lg border border-[#30343D] bg-transparent text-xs font-bold uppercase hover:border-[#C2F800] hover:bg-transparent hover:text-[#C2F800] sm:flex-none">
+                            {" "}
+                            View Details{" "}
+                          </button>{" "}
                         </Link>
                         <button className="btn btn-sm flex-1 rounded-lg bg-[#C2F800] text-xs font-black uppercase text-black hover:bg-[#D4FF33] sm:flex-none">
                           {" "}
@@ -179,7 +179,7 @@ export default function Page() {
             <input
               type="radio"
               name="my_tabs_3"
-              className="tab"
+              className={`tab ${activeTab === "saved" && `text-[#C2F10D]`}`}
               aria-label="Saved"
               checked={activeTab === "saved"}
               onChange={() => setActiveTab("saved")}

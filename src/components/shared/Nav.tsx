@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import NavEnd from "./NavEnd";
+import NavButton from "./NavButton";
 
 const Nav = () => {
     return (
@@ -18,23 +19,7 @@ const Nav = () => {
             </Link>
           </div>
 
-          <div className="navbar-center">
-            <div className="flex items-center gap-1 text-[10px] sm:text-sm">
-              <Link
-                href="/"
-                className="rounded-full bg-[#c2f80052] px-3 py-1 font-medium text-[#C2F800]"
-              >
-                Workouts
-              </Link>
-
-              <Link
-                href="/my-plan"
-                className="px-3 py-1 text-white/50 transition hover:text-white"
-              >
-                My Plan
-              </Link>
-            </div>
-          </div>
+          <NavButton></NavButton>
           <NavEnd></NavEnd>
         
         </div>
