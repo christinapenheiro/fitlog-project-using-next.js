@@ -140,7 +140,6 @@ export default function Page() {
                           </button>{" "}
                         </Link>
                         <DoneButton
-                          activeTab={activeTab}
                           card={plan}
                         ></DoneButton>
                         <DelButton card={plan}></DelButton>
@@ -242,10 +241,7 @@ export default function Page() {
                             View Details{" "}
                           </button>{" "}
                         </Link>
-                        <DoneButton
-                          activeTab={activeTab}
-                          card={plan}
-                        ></DoneButton>
+                        
                         <SaveDelButton card={plan}></SaveDelButton>
                       </div>{" "}
                     </div>{" "}

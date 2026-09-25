@@ -3,15 +3,15 @@ import IExercise from "@/types/type";
 import { toast } from "react-toastify";
 import { useContext } from "react";
 import { PlanContext } from "@/context/plan";
+import { FaCheck } from "react-icons/fa";
 
 interface IdoneProps {
-  activeTab: "today" | "saved";
   card: IExercise
 }
 
 
-const DoneButton = ({ activeTab,card }: IdoneProps) => {
-   const { todayPlan, setTodayPlan, saveLater, setSaveLater } =
+const DoneButton = ({ card }: IdoneProps) => {
+   const { todayPlan, setTodayPlan } =
      useContext(PlanContext);
   // const [isDone, setIsDone] = useState<boolean>(false);
   // const handleClick = () => {
@@ -20,18 +20,13 @@ const DoneButton = ({ activeTab,card }: IdoneProps) => {
   // };
 
 
-  const selectedPlan = activeTab === "today" ? todayPlan : saveLater;
-
 
 
    const filterPlan = () => {
     toast.success("Marked as done!");
-    const updatedPlan = [...selectedPlan].filter((exercise) => exercise.id !== card.id);
-    if(activeTab === "today"){
-      setTodayPlan(updatedPlan)
-    } else {
-      setSaveLater(updatedPlan)
-    }}
+    const updatedPlan = [...todayPlan].filter((exercise) => exercise.id !== card.id);
+    setTodayPlan(updatedPlan)
+   }
 
 
   return (
@@ -39,7 +34,8 @@ const DoneButton = ({ activeTab,card }: IdoneProps) => {
       className={`btn btn-sm rounded-lg bg-[#C2F800] text-[10px] sm:text-xs font-black uppercase text-black hover:bg-[#D4FF33] sm:flex-none cursor-pointer w-full lg:flex-1`}
       onClick={filterPlan}
     >
-    Mark as Done
+      <FaCheck />
+      Mark as Done
     </button>
   );
 };
