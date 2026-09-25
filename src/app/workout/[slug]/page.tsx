@@ -5,7 +5,7 @@ import PlanButton from "@/components/shared/PlanButton";
 import { notFound } from "next/navigation";
 
 const libraryData = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}`);
+  const res = await fetch("https://api.abcz.workers.dev/api/fitlog");
 
   if (!res.ok) {
     notFound();
