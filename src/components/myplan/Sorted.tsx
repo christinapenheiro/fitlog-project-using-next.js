@@ -6,7 +6,13 @@ import { PlanContext } from "@/context/plan";
 
 const Sorted = ({ activeTab }: { activeTab: string }) => {
     const { todayPlan, setTodayPlan,saveLater,setSaveLater } = useContext(PlanContext);
-    const [selectedOption, setSelectedOption] = useState<"Duration" | "Calories" | "Rating">("Duration");
+    // const [selectedOption, setSelectedOption] = useState<"Duration" | "Calories" | "Rating">("Duration");
+    const [todaySortedOption, setTodaySortedOption] = useState<"Duration" | "Calories" | "Rating">("Duration");
+    const [saveLaterSortedOption, setSaveLaterSortedOption] = useState<"Duration" | "Calories" | "Rating">("Duration");
+
+    const selectedOption = activeTab === "today" ? todaySortedOption : saveLaterSortedOption;
+    
+    
     const selectedPlan = activeTab === "today" ? todayPlan : saveLater;
 
     const handleOptionClick = (option: "Duration" | "Calories" | "Rating") => {
@@ -20,17 +26,19 @@ const Sorted = ({ activeTab }: { activeTab: string }) => {
 
         if(activeTab === "today") {
             setTodayPlan(sortedPlan);
+            setTodaySortedOption(option);
         } else {
             setSaveLater(sortedPlan);
+            setSaveLaterSortedOption(option);
         }
-        setSelectedOption(option);
+        // setSelectedOption(option);
     }
 
 
     return (
       <div className="dropdown dropdown-end absolute right-0 top-0">
         <div tabIndex={0} role="button" className="btn">
-          Sort By: <span className="ml-2 text-[#C2F800]">{selectedOption}</span>
+          Sort By:<span className="ml-2 text-[#C2F800]">{selectedOption}</span>
         </div>
         <ul
           tabIndex={-1}

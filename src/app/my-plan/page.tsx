@@ -7,6 +7,7 @@ import Link from "next/link";
 import DelButton from "@/components/myplan/delButton";
 import SaveDelButton from "@/components/myplan/saveDelButton";
 import Sorted from "@/components/myplan/Sorted";
+import DoneButton from "@/components/myplan/DoneButton";
 
 
 
@@ -138,10 +139,7 @@ export default function Page() {
                             View Details{" "}
                           </button>{" "}
                         </Link>
-                        <button className="btn btn-sm flex-1 rounded-lg bg-[#C2F800] text-xs font-black uppercase text-black hover:bg-[#D4FF33] sm:flex-none">
-                          {" "}
-                          Mark as Done{" "}
-                        </button>{" "}
+                       <DoneButton></DoneButton>
                         <DelButton card={plan}></DelButton>
                       </div>{" "}
                     </div>{" "}

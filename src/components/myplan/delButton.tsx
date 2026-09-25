@@ -1,6 +1,7 @@
 import { PlanContext } from "@/context/plan";
 import IExercise from "@/types/type";
 import { useContext } from "react";
+import { toast } from "react-toastify";
 
 export interface DelButtonProps {
   card: IExercise;
@@ -13,6 +14,10 @@ export default function DelButton({ card }: DelButtonProps) {
   const filterTodayPlan = () => {
     const updatedPlan = [...todayPlan].filter((exercise) => exercise.id !== card.id);
     setTodayPlan(updatedPlan);
+    toast.info("Exercise removed from today's plan", {
+      position: "top-right",
+      autoClose: 3000,
+    });
   };
 
   return (
