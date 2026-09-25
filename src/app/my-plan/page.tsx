@@ -130,16 +130,19 @@ export default function Page() {
                           </div>{" "}
                         </div>{" "}
                       </div>{" "}
-                      {/* Actions */}{" "}
-                      <div className="flex items-center gap-2  lg:flex-row">
+                      {/* Actions items-center */}
+                      <div className="flex flex-col gap-2  lg:flex-row">
                         {" "}
-                        <Link href={`/workout/${plan.id}`}>
-                          <button className="btn btn-sm flex-1 rounded-lg border border-[#30343D] bg-transparent text-xs font-bold uppercase hover:border-[#C2F800] hover:bg-transparent hover:text-[#C2F800] sm:flex-none">
+                        <Link className="" href={`/workout/${plan.id}`}>
+                          <button className="btn btn-sm rounded-lg border border-[#30343D] bg-transparent text-[10px] font-bold uppercase hover:border-[#C2F800] hover:bg-transparent hover:text-[#C2F800] sm:flex-none sm:text-xs w-full lg:flex-1">
                             {" "}
                             View Details{" "}
                           </button>{" "}
                         </Link>
-                       <DoneButton></DoneButton>
+                        <DoneButton
+                          activeTab={activeTab}
+                          card={plan}
+                        ></DoneButton>
                         <DelButton card={plan}></DelButton>
                       </div>{" "}
                     </div>{" "}
@@ -231,18 +234,18 @@ export default function Page() {
                         </div>{" "}
                       </div>{" "}
                       {/* Actions */}{" "}
-                      <div className="flex items-center gap-2 lg:flex-row">
+                      <div className="flex flex-col gap-2  lg:flex-row">
                         {" "}
                         <Link href={`/workout/${plan.id}`}>
-                          <button className="btn btn-sm flex-1 rounded-lg border border-[#30343D] bg-transparent text-xs font-bold uppercase hover:border-[#C2F800] hover:bg-transparent hover:text-[#C2F800] sm:flex-none">
+                          <button className="btn btn-sm rounded-lg border border-[#30343D] bg-transparent text-[10px] font-bold uppercase hover:border-[#C2F800] hover:bg-transparent hover:text-[#C2F800] sm:flex-none sm:text-xs w-full lg:flex-1">
                             {" "}
                             View Details{" "}
                           </button>{" "}
                         </Link>
-                        <button className="btn btn-sm flex-1 rounded-lg bg-[#C2F800] text-xs font-black uppercase text-black hover:bg-[#D4FF33] sm:flex-none">
-                          {" "}
-                          Mark as Done{" "}
-                        </button>{" "}
+                        <DoneButton
+                          activeTab={activeTab}
+                          card={plan}
+                        ></DoneButton>
                         <SaveDelButton card={plan}></SaveDelButton>
                       </div>{" "}
                     </div>{" "}
@@ -269,7 +272,7 @@ export default function Page() {
                 </div>
               )}
             </div>
-           <Sorted activeTab={activeTab}></Sorted>
+            <Sorted activeTab={activeTab}></Sorted>
           </div>
         </div>
       </div>

@@ -23,7 +23,7 @@ export default function DelButton({ card }: DelButtonProps) {
   return (
     <div>
       <button
-        className="btn btn-square btn-sm rounded-lg border border-[#30343D] bg-transparent text-gray-500 hover:border-red-500 hover:bg-transparent hover:text-red-500"
+        className="btn btn-square btn-sm rounded-lg border border-[#30343D] bg-transparent text-gray-500 hover:border-red-500 hover:bg-transparent hover:text-red-500 w-full lg:w-10"
         aria-label="Remove exercise"
         onClick={filterTodayPlan}
       >

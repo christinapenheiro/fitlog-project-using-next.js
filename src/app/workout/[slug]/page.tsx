@@ -1,15 +1,15 @@
 import Image from "next/image";
-import Link from "next/link";
-
 import IExercise from "@/types/type";
 import SaveButton from "@/components/shared/SaveButton";
 import PlanButton from "@/components/shared/PlanButton";
+import { notFound } from "next/navigation";
+
 
 const libraryData = async () => {
   const res = await fetch("https://api.abcz.workers.dev/api/fitlog");
 
   if (!res.ok) {
-    throw new Error("Failed to fetch data.");
+    notFound()
   }
 
   return res.json();
@@ -27,6 +27,12 @@ export default async function WorkoutDetails({
   const exercise = post.find(
     (data: IExercise) => String(data.id) === String(slug),
   ) as IExercise;
+
+  if(!exercise){
+    notFound();
+  }
+
+
 
   const specs = [
     {

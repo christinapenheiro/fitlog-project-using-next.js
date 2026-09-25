@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useContext } from "react";
 import { PlanContext } from "@/context/plan";
+import { LuSquareChevronDown } from "react-icons/lu";
 
 
 
@@ -36,25 +37,41 @@ const Sorted = ({ activeTab }: { activeTab: string }) => {
 
 
     return (
-      <div className="dropdown dropdown-end absolute right-0 top-0">
+      <div className=" dropdown sm:dropdown-end sm:absolute right-0 top-0 bg-[#14171E] mx-6 sm:mx-0">
         <div tabIndex={0} role="button" className="btn">
-          Sort By:<span className="ml-2 text-[#C2F800]">{selectedOption}</span>
+          <LuSquareChevronDown /> Sort By:
+          <span className="ml-2 text-[#C2F800]">{selectedOption}</span>
         </div>
         <ul
           tabIndex={-1}
           className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
         >
           <li>
-            <span onClick={() => {handleOptionClick("Duration");
-                }}>Duration</span>
+            <span
+              onClick={() => {
+                handleOptionClick("Duration");
+              }}
+            >
+              Duration
+            </span>
           </li>
           <li>
-            <span onClick={() => {handleOptionClick("Calories");
-                }}>Calories</span>
+            <span
+              onClick={() => {
+                handleOptionClick("Calories");
+              }}
+            >
+              Calories
+            </span>
           </li>
           <li>
-            <span onClick={() => {handleOptionClick("Rating");
-                }}>Rating</span>
+            <span
+              onClick={() => {
+                handleOptionClick("Rating");
+              }}
+            >
+              Rating
+            </span>
           </li>
         </ul>
       </div>
