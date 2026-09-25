@@ -4,12 +4,11 @@ import SaveButton from "@/components/shared/SaveButton";
 import PlanButton from "@/components/shared/PlanButton";
 import { notFound } from "next/navigation";
 
-
 const libraryData = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}`);
 
   if (!res.ok) {
-    notFound()
+    notFound();
   }
 
   return res.json();
@@ -25,14 +24,12 @@ export default async function WorkoutDetails({
   const post = await libraryData();
 
   const exercise = post.find(
-    (data: IExercise) => String(data.id) === String(slug),
-  ) as IExercise;
+    (data: IExercise) => String(data.id) === String(slug)
+  );
 
-  if(!exercise){
+  if (!exercise) {
     notFound();
   }
-
-
 
   const specs = [
     {
@@ -89,7 +86,7 @@ export default async function WorkoutDetails({
             </p>
 
             <div className="mt-4 flex flex-wrap gap-2">
-              {exercise.muscleGroups.map((muscle) => (
+              {exercise.muscleGroups.map((muscle:string) => (
                 <span
                   key={muscle}
                   className="rounded-full bg-[#C2F800] px-3 py-1 text-[10px] font-bold uppercase tracking-wide text-black"
@@ -122,7 +119,7 @@ export default async function WorkoutDetails({
               </h2>
 
               <ol className="mt-3 space-y-3">
-                {exercise.instructions.map((instruction, index) => (
+                {exercise.instructions.map((instruction : string, index : number) => (
                   <li
                     key={index}
                     className="flex gap-3 text-xs leading-relaxed text-gray-400"
