@@ -34,8 +34,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <div>{children}</div>
           <Footer></Footer>
         </PlanProvider>
+        <ToastContainer />
       </body>
-      <ToastContainer />
     </html>
   );
 }

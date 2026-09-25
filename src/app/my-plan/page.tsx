@@ -4,10 +4,11 @@ import { PlanContext } from "@/context/plan";
 import IExercise from "@/types/type";
 import Image from "next/image";
 import Link from "next/link";
+import DelButton from "@/components/myplan/delButton";
+import SaveDelButton from "@/components/myplan/saveDelButton";
+import Sorted from "@/components/myplan/Sorted";
 
-export interface PageProps {
-    prop: string
-}
+
 
 export default function Page() {
     const {todayPlan,saveLater} = useContext(PlanContext)
@@ -16,7 +17,7 @@ export default function Page() {
     const excercises =  selectedPlan.length
     const minutes = selectedPlan.reduce((acc,min)=> min.duration+acc,0)
     const calories = selectedPlan.reduce((acc,cal)=>cal.caloriesBurned+acc,0)
-
+ 
     return (
       <div>
         <div className="mx-6 sm:mx-8 lg:mx-12 my-10">
@@ -64,7 +65,7 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="tabs tabs-lift">
+          <div className="tabs tabs-lift relative">
             <input
               type="radio"
               name="my_tabs_3"
@@ -141,15 +142,7 @@ export default function Page() {
                           {" "}
                           Mark as Done{" "}
                         </button>{" "}
-                        <div>
-                          <button
-                            className="btn btn-square btn-sm rounded-lg border border-[#30343D] bg-transparent text-gray-500 hover:border-red-500 hover:bg-transparent hover:text-red-500"
-                            aria-label="Remove exercise"
-                          >
-                            {" "}
-                            ×{" "}
-                          </button>{" "}
-                        </div>
+                        <DelButton card={plan}></DelButton>
                       </div>{" "}
                     </div>{" "}
                   </div>
@@ -252,13 +245,7 @@ export default function Page() {
                           {" "}
                           Mark as Done{" "}
                         </button>{" "}
-                        <button
-                          className="btn btn-square btn-sm rounded-lg border border-[#30343D] bg-transparent text-gray-500 hover:border-red-500 hover:bg-transparent hover:text-red-500"
-                          aria-label="Remove exercise"
-                        >
-                          {" "}
-                          ×{" "}
-                        </button>{" "}
+                        <SaveDelButton card={plan}></SaveDelButton>
                       </div>{" "}
                     </div>{" "}
                   </div>
@@ -284,6 +271,7 @@ export default function Page() {
                 </div>
               )}
             </div>
+           <Sorted activeTab={activeTab}></Sorted>
           </div>
         </div>
       </div>

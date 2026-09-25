@@ -10,14 +10,20 @@ import { toast } from 'react-toastify';
 const PlanButton = ({card}:{card:IExercise}) => {
     const {todayPlan,setTodayPlan} = useContext(PlanContext)
     const somePlan = todayPlan.some(plan=>plan.id === card.id)
+  
+
     const handlePlan = () => {
       if(somePlan){
         toast.error("Already in your plan!")
       } else{
-        setTodayPlan([...todayPlan,card])
+        setTodayPlan([...todayPlan,card].sort((a, b) => a.duration - b.duration));
         toast.success("Added to today's plan");
       }
     }
+
+
+
+
 
     return (
       <button
