@@ -1,6 +1,5 @@
 "use client";
 import IExercise from "@/types/type";
-import { useState } from "react";
 import { toast } from "react-toastify";
 import { useContext } from "react";
 import { PlanContext } from "@/context/plan";

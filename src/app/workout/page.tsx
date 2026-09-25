@@ -2,7 +2,7 @@ import type IExercise from "@/types/type";
 import LibCard from "@/components/shared/LibCard";
 
 export const libraryData = async () => {
-  const res = await fetch("https://api.abcz.workers.dev/api/fitlog");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}`);
   if (!res.ok) {
     throw new Error("Failed to fetch data.");
   }
