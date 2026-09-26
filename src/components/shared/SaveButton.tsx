@@ -13,7 +13,7 @@ const SaveButton = ({ card }: { card: IExercise }) => {
       toast.error("Already in your plan!");
     } else {
       setSaveLater(
-        [...saveLater, card].sort((a, b) => a.duration - b.duration),
+        [...saveLater, card].sort((a, b) => b.duration - a.duration),
       );
       toast.success("Added to saved plan");
     }

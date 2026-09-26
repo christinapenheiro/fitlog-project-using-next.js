@@ -20,10 +20,10 @@ const Sorted = ({ activeTab }: { activeTab: string }) => {
         // setSelectedOption(selectedOption === option ? selectedOption : option);
         const sortedPlan =
         option === "Duration"
-        ? [...selectedPlan].sort((a, b) => a.duration - b.duration)
+        ? [...selectedPlan].sort((a, b) => b.duration - a.duration)
         : option === "Calories"
-          ? [...selectedPlan].sort((a, b) => a.caloriesBurned - b.caloriesBurned)
-          : [...selectedPlan].sort((a, b) => a.rating - b.rating); 
+          ? [...selectedPlan].sort((a, b) => b.caloriesBurned - a.caloriesBurned)
+          : [...selectedPlan].sort((a, b) => b.rating - a.rating); 
 
         if(activeTab === "today") {
             setTodayPlan(sortedPlan);
